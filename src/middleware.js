@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { withAuth } from "next-auth/middleware";
 
 export default withAuth({
@@ -11,3 +12,8 @@ export default withAuth({
   },
 });
 export const config = { matcher: ["/account/:path*"] }
+=======
+export { withAuth } from "next-auth/middleware";
+export { default } from "next-auth/middleware";
+export const config = { matcher: ["/account/:path*"] }
+>>>>>>> 66d5f058be64d3a7470b7d662f0f53655bb53bcc
