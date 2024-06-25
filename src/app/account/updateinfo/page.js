@@ -18,7 +18,7 @@ export default function Page() {
             if (formData.get("visitingcharge") && isNaN(Number.parseInt(formData.get("visitingcharge")))) {
                 throw new Error("Visiting Charge Should Be a Number")
             }
-            if (formData.get("phone") && isNaN(Number.parseInt(formData.get("phone"))) || (formData.get("phone").length != 10)) {
+            if (formData.get("phone") && (isNaN(Number.parseInt(formData.get("phone"))) || (formData.get("phone").length != 10))) {
                 throw new Error("Invalid Phone")
             }
             const sendInfo = await fetch("/api/accountinfo", {
