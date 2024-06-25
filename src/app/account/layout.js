@@ -7,6 +7,9 @@ import { redirect } from 'next/navigation'
 export default function Layout({ children }) {
     const [toggleMenu, settoggleMenu] = useState(false)
     const { data: session } = useSession();
+    if (!session) {
+        redirect("/")
+    }
     return (
         <div>
             <li>

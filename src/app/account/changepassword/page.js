@@ -46,7 +46,9 @@ export default function Dashboard() {
                     theme: "light",
                 });
                 e.target.reset()
-                signOut();
+                setTimeout(() => {
+                    signOut();
+                }, 1000);
             }
         }
         catch (e) { notify("Some Error Occurred!") }

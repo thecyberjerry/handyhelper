@@ -36,7 +36,7 @@ const authOptions = NextAuth({
         }
       }
     }),
-    
+
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
       name: "Credentials",
@@ -75,7 +75,7 @@ const authOptions = NextAuth({
     maxAge: 1 * 24 * 60 * 60,
     updateAge: 1 * 60 * 60,
   },
-  jwt: {secret: process.env.NEXTAUTH_SECRET, maxAge: 60 * 60 * 24 * 1, updateAge: 1 * 60 * 60 },
+  jwt: { secret: process.env.NEXTAUTH_SECRET, maxAge: 60 * 60 * 24 * 1, updateAge: 1 * 60 * 60 },
   callbacks: {
     async jwt({ token, account, profile, trigger, session }) {
       // Persist the OAuth access_token and or the user id to the token right after signin
