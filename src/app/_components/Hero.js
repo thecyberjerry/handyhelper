@@ -9,13 +9,13 @@ export default function Hero() {
                 <div className="dark:bg-gray-900 text-white py-20">
                     <div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
                         <div className="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
-                            <h1 className="text-3xl md:text-5xl p-2 text-blue-700 tracking-loose"><Fade delay={1e1} cascade damping={1e-1}>Find My Mate </Fade></h1>
+                            <h1 className="text-3xl md:text-5xl p-2 text-blue-700 tracking-loose"><Fade delay={1e1} cascade damping={1e-1}>HandyHelper </Fade></h1>
                             <h2 className="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">Professionals : At your fingertip
                             </h2>
                             <p className="text-sm md:text-base text-gray-50 mb-4">Find Trusted Professionals for Every Home Service Need
                                 Electricians, Plumbers, Carpenters, and More
                                 Your Reliable Source for Expert Help.</p>
-                            <Link prefetch={false} href={"/findmymate"}
+                            <Link prefetch={false} href={"/handyhelper"}
                                 className="bg-transparent hover:bg-blue-700 text-blue-700 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-blue-700 hover:border-transparent">
                                 Explore Now</Link>
                         </div>

@@ -9,10 +9,10 @@ export default function Page({ params }) {
   const router = useRouter();
   useEffect(() => {
     const fetchUser = async () => {
-      const user = await fetch(`/api/findmymate?q=${path.get("name")}`, { cache: "force-cache" })
+      const user = await fetch(`/api/handyhelper?q=${path.get("name")}`, { cache: "force-cache" })
       const res = await user.json();
-      if (res.error) router.push("/findmymate");
-      if (params.slug != path.get("name")) router.push("/findmymate");
+      if (res.error) router.push("/handyhelper");
+      if (params.slug != path.get("name")) router.push("/handyhelper");
       setuserDat(res)
     }
     fetchUser();
