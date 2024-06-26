@@ -55,7 +55,7 @@ export default function Dashboard() {
                                             </div>
                                             <div className="w-full">
                                                 <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Visiting Charges*</label>
-                                                <input disabled type="text" name="price" id="price" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value={userinfo.visitingcharge ? `₹`+userinfo.visitingcharge: ""} placeholder="$100" required="" />
+                                                <input disabled type="text" name="price" id="price" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value={userinfo.visitingcharge ? `₹` + userinfo.visitingcharge : ""} placeholder="$100" required="" />
                                             </div>
                                         </div>
                                         <div className='mt-6'>
@@ -69,6 +69,18 @@ export default function Dashboard() {
                                         <div className='mt-6'>
                                             <label htmlFor="item-weight" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Company*</label>
                                             <input disabled type="text" name="item-weight" id="item-weight" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value={userinfo.company} placeholder="Find My Mate" required="" />
+                                        </div>
+                                        <div className='mt-6'>
+                                            <label htmlFor="item-weight" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram</label>
+                                            <input disabled type="url" name="item-weight" id="item-weight" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value={userinfo.instagram} placeholder="https://www.example.com/thecyberjerry" required="" />
+                                        </div>
+                                        <div className='mt-6'>
+                                            <label htmlFor="item-weight" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Facebook</label>
+                                            <input disabled type="url" name="item-weight" id="item-weight" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value={userinfo.facebook} placeholder="https://www.example.com/thecyberjerry" required="" />
+                                        </div>
+                                        <div className='mt-6'>
+                                            <label htmlFor="item-weight" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">X(Twitter)</label>
+                                            <input disabled type="url" name="item-weight" id="item-weight" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" value={userinfo.x} placeholder="https://www.example.com/thecyberjerry" required="" />
                                         </div>
                                         <div className="sm:col-span-2 mt-6">
                                             <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bio*</label>
