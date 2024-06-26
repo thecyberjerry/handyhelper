@@ -12,7 +12,16 @@ export default function Page() {
         e.preventDefault();
         const formData = new FormData(e.target)
         try {
-            if (formData.get("bio") && formData.get("bio").length < 50) {
+            let counter = 0
+            const count = () => {
+                formData.get("bio").split(" ").filter((item) => {
+                    if (item !== "" && counter < 50) {
+                        counter += 1;
+                    }
+                })
+            }
+            count();
+            if (formData.get("bio") && counter < 50) {
                 throw new Error("Bio must be more than 50 Words.")
             }
             if (formData.get("visitingcharge") && isNaN(Number.parseInt(formData.get("visitingcharge")))) {
@@ -64,6 +73,7 @@ export default function Page() {
         }
 
     }
+    
     return (
         <div>
             <ToastContainer />
