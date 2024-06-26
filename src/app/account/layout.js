@@ -3,13 +3,9 @@ import { signIn, signOut } from 'next-auth/react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useSession } from 'next-auth/react'
-import { redirect } from 'next/navigation'
 export default function Layout({ children }) {
     const [toggleMenu, settoggleMenu] = useState(false)
     const { data: session } = useSession();
-    if (!session) {
-        redirect("/")
-    }
     return (
         <div>
             <li>

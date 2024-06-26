@@ -10,7 +10,7 @@ export default function Filler1() {
     const { data: session } = useSession();
     return (
         <div data-aos="fade-up">
-            <section className="bg-white rounded-3xl shadow-2xl shadow-blue-500  m-20">
+            <section className="bg-white rounded-3xl shadow-2xl shadow-blue-500  mx-8 md:mx-20 my-20">
                 <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
                     <img className="w-full hidden dark:block" src="https://plus.unsplash.com/premium_photo-1682361002156-7bb05f6cac54?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="dashboard image" />
                     <div className="mt-4 md:mt-0">
