@@ -20,7 +20,7 @@ export default function Page() {
             inputRef.current.value = ""
         }
         catch (e) {
-            toast.error(e.message, {
+            toast.error("Sorry!, Some Error Occured or invalid file", {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: true,
@@ -60,8 +60,6 @@ export default function Page() {
         }
     }, [session?.user?.name])
     const deletImg = async (img) => {
-        console.log(img);
-
         const desertRef = ref(storage, `${session.user.name}/${img}`);
         // Delete the file
         deleteObject(desertRef).then(() => {
