@@ -56,7 +56,7 @@ export default function Page() {
                 });
         }
         catch (e) {
-            console.log(e);
+            
         }
     }, [session?.user?.name])
     const deletImg = async (img) => {

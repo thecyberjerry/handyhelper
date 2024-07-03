@@ -44,8 +44,6 @@ export async function POST(req, res) {
         }
     }
     catch (e) {
-        console.log(e);
-
         return NextResponse.json({ error: "unauthorised request" });
     }
 }
