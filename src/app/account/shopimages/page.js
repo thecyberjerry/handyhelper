@@ -20,8 +20,8 @@ export default function Page() {
             inputRef.current.value = ""
         }
         catch (e) {
-            console.log(e)
-            toast.error(e.message, {
+            
+            toast.error("Sorry!, Some Error Occured or invalid file", {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: true,
