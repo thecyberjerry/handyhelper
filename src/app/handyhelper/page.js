@@ -7,7 +7,7 @@ export default function Page() {
   const [userData, setuserData] = useState()
   useEffect(() => {
     const fetchUsers = async () => {
-      const fetchMe = await fetch("/api/handyhelper", { cache: 'force-cache' });
+      const fetchMe = await fetch("/api/handyhelper", { cache: 'force-cache', next: { revalidate: 3600 } });
       const res = await fetchMe.json()
       setuserData(res)
     }
