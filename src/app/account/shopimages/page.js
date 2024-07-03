@@ -20,6 +20,7 @@ export default function Page() {
             inputRef.current.value = ""
         }
         catch (e) {
+            console.log(e)
             toast.error(e.message, {
                 position: "top-right",
                 autoClose: 5000,
