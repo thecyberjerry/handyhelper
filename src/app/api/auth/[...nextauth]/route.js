@@ -45,8 +45,8 @@ const authOptions = NextAuth({
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "" },
-        password: { label: "Password", type: "password" }
+        email: { label: "Admin Email", type: "email", placeholder: "" },
+        password: { label: "Admin Password", type: "password" }
       },
       async authorize(credentials, req) {
         const hash = bcrypt.hashSync(credentials.password, 10);

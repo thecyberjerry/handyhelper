@@ -1,15 +1,18 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import { storage } from "@/config/firebase";
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import Loading from '@/app/_components/Loading';
 export default function Page({ params }) {
   const path = useSearchParams();
   const [userDat, setuserDat] = useState()
+  const [img, setimg] = useState([])
   const router = useRouter();
   useEffect(() => {
     const fetchUser = async () => {
-      const user = await fetch(`/api/handyhelper?q=${path.get("name")}`, { cache: "force-cache" })
+      const user = await fetch(`/api/handyhelper?q=${path.get("name")}`, { cache: "reload", next: { revalidate: 3600 } })
       const res = await user.json();
       if (res.error) router.push("/handyhelper");
       if (params.slug != path.get("name")) router.push("/handyhelper");
@@ -17,6 +20,32 @@ export default function Page({ params }) {
     }
     fetchUser();
   }, [])
+  useEffect(() => {
+    try {
+      const storage = getStorage();
+      const listRef = ref(storage, userDat.name);
+
+      listAll(listRef)
+        .then((res) => {
+          if (res.items.length === 0 && res.prefixes.length === 0) {
+            setimg(false)
+          }
+          res.items.forEach((items) => {
+            const newRef = ref(storage, items._location.path_)
+            getDownloadURL(newRef)
+              .then((url) => {
+                if (url) {
+                  setimg(img => [...img, url])
+                }
+              })
+          })
+        }).catch((error) => {
+        });
+    }
+    catch (e) {
+    }
+  }, [userDat?.name])
+
   return (
     <div>
       <div className="bg-gray-100 my-32">
@@ -119,6 +148,27 @@ export default function Page({ params }) {
                     {userDat.address}
                   </p>
                 </div>
+                <section className="text-gray-600 body-font">
+                  <div className="container px-5 py-24 mx-auto">
+                    <div className="flex flex-wrap -m-4">
+                      {!img ? <div className="w-full flex items-center justify-center">
+                        <div className="h-full overflow-hidden">
+                          <img className="h-full w-full" src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png" alt="blog" />
+                        </div>
+                      </div> : img && img.length == 0 ? <Loading /> :
+                        img.map((item, index) => {
+                          return (
+                            <div className="p-4 md:w-1/3" key={index}>
+                              <div className="h-full overflow-hidden">
+                                <img className="lg:h-full md:h-full w-full object-contain object-center" src={item} alt="blog" />
+                              </div>
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div>
+                </section>
               </div>
             </div>
           </div> : <Loading />}

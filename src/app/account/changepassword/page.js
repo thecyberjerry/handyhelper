@@ -20,6 +20,7 @@ export default function Dashboard() {
     const submitForm = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target)
+        console.log(formData.get("newPassword"));
         try {
             const pass = await fetch("/api/accountinfo",
                 {

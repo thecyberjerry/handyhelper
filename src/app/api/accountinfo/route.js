@@ -20,27 +20,37 @@ export async function GET(req, res) {
     }
     return NextResponse.json({ user: obj });
 }
+
 export async function POST(req, res) {
-    const formData = await req.formData();
-    const session = await getServerSession({ req });
-    if (!session || session.user.email !== formData.get("email")) {
+    try {
+        const session = await getServerSession({ req });
+        const formData = await req.formData();
+        if (!session || session.user.email !== formData.get("email")) {
+            return NextResponse.json({ error: "unauthorised request" });
+        }
+        const isUser = await db.collection("users").findOne({ phone: formData.get("phone") })
+        if (!isUser) {
+            for (const key of formData.keys()) {
+                if (formData.get(key) !== "") {
+                    let myObj = {}
+                    myObj[key] = formData.get(key)
+                    await db.collection("users").updateOne({ email: formData.get("email") }, { $set: myObj })
+                }
+            }
+            return NextResponse.json({ message: "success" });
+        }
+        else {
+            return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+        }
+    }
+    catch (e) {
+        console.log(e);
+
         return NextResponse.json({ error: "unauthorised request" });
     }
-    const isUser = await db.collection("users").findOne({ phone: formData.get("phone") })
-    if (!isUser) {
-        for (const key of formData.keys()) {
-            if (formData.get(key) !== "") {
-                let myObj = {}
-                myObj[key] = formData.get(key)
-                await db.collection("users").updateOne({ email: formData.get("email") }, { $set: myObj })
-            }
-        }
-        return NextResponse.json({ message: "success" });
-    }
-    else {
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
-    }
 }
+
+
 export async function PATCH(req, res) {
     const formData = await req.formData();
     const session = await getServerSession({ req });
