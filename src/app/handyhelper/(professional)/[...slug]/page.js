@@ -69,7 +69,7 @@ export default function Page({ params }) {
                   </ul>
                 </div>
                 <div className={userDat.visitingcharge ? "flex flex-col" : "hidden"}>
-                  <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">Visitng Charges</span>
+                  <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">Visiting Charges</span>
                   <ul>
                     <li className="mb-2">₹{userDat.visitingcharge}</li>
                   </ul>
@@ -153,14 +153,14 @@ export default function Page({ params }) {
                     <div className="flex flex-wrap -m-4">
                       {!img ? <div className="w-full flex items-center justify-center">
                         <div className="h-full overflow-hidden">
-                          <img className="h-full w-full" src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png" alt="blog" />
+                          <img className="h-full w-full" src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png" alt="No Image" />
                         </div>
                       </div> : img && img.length == 0 ? <Loading /> :
                         img.map((item, index) => {
                           return (
                             <div className="p-4 md:w-1/3" key={index}>
                               <div className="h-full overflow-hidden">
-                                <img className="lg:h-full md:h-full w-full object-contain object-center" src={item} alt="blog" />
+                                <img className="lg:h-full md:h-full w-full object-contain object-center" src={item} alt="Some Image" />
                               </div>
                             </div>
                           )

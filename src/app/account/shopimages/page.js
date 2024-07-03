@@ -56,7 +56,7 @@ export default function Page() {
                 });
         }
         catch (e) {
-            
+
         }
     }, [session?.user?.name])
     const deletImg = async (img) => {
@@ -81,7 +81,7 @@ export default function Page() {
 
     return (
 
-        <div className='mt-12 ml-32 text-black'>
+        <div className='mt-32 sm:mt-20 w-full sm:w-auto sm:ml-32 text-black'>
             <div className="p-4 sm:ml-32 sm:mt-0">
                 <div className="p-10 border-2 border-gray-200 max-w-4xl border-dashed rounded-lg dark:border-gray-700 ">
                     <ToastContainer />
@@ -124,7 +124,7 @@ export default function Page() {
                                                     deletImg(item.name);
                                                 }
                                                 }>Delete</button>
-                                                <img className=" my-2 w-full " src={item.link} alt="blog" />
+                                                <img className=" my-2 w-full " src={item.link} alt="Some Image" />
                                             </div>
                                         </div>
                                     )

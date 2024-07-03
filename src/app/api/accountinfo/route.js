@@ -62,10 +62,7 @@ export async function PATCH(req, res) {
         }
         else {
             const hash = bcrypt.hashSync(formData.get("newPassword"), 10);
-            let myPass =
-            {
-                password: hash
-            }
+            let myPass = { password: hash }
             await db.collection("users").updateOne({ email: session.user.email }, { $set: myPass })
             return NextResponse.json({ message: "Password Changed" });
         }
